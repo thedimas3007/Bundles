@@ -171,7 +171,7 @@ public class Bundle {
     }
     //endregion
 
-    //region bundled Message
+    //region sendMessage
     /**
      * Sends a localized message to the specified player based on the given condition, using the provided keys and values for formatting.
      *
@@ -221,7 +221,7 @@ public class Bundle {
     }
     //endregion
 
-    //region bundled HUD
+    //region hud
     /**
      * Sets the HUD text of the specified player to a localized message based on the given condition, using the provided keys and values for formatting.
      *
@@ -271,7 +271,7 @@ public class Bundle {
     }
     //endregion
 
-    //region bundled Info Message
+    //region infoMessage
     /**
      * Sends a localized info message (alert) to the specified player based on the given condition, using the provided keys and values for formatting.
      *
@@ -321,7 +321,7 @@ public class Bundle {
     }
     //endregion
 
-    //region bundled Label
+    //region label
     /**
      * Creates a label for the specified player with a localized message based on the given condition, using the provided keys and values for formatting.
      *
