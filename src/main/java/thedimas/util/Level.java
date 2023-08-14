@@ -1,4 +1,4 @@
-package thedimas.bundle;
+package thedimas.util;
 
 import arc.graphics.Color;
 

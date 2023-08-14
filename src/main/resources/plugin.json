@@ -1,7 +1,0 @@
-{
-  "name": "Bundles Plugin",
-  "author": "thedimas",
-  "main": "thedimas.bundle.ExamplePlugin",
-  "description": "A plugin to demonstrate some bundle features.",
-  "version": 1.0
-}

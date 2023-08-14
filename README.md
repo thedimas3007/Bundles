@@ -1,6 +1,6 @@
 # Bundles
 
-Collection of different I18N utils to be used in Mindustry Plugins and Mods
+Collection of different Java utils to be used in Mindustry Plugins and Mods
 
 ### Building a Jar
 
