@@ -219,6 +219,58 @@ public class Bundle {
     public static void bundled(String key, Object... values) {
         Groups.player.each(p -> bundled(p, key, values));
     }
+
+    /**
+     * Sends a localized message with a specific logging level to the specified player based on the given condition, using the provided keys and values for formatting.
+     *
+     * @param level the logging level for the message
+     * @param player the player to whom the message should be sent
+     * @param condition the condition determining which key to use for the message
+     * @param keyTrue the key to use if the condition is true
+     * @param keyFalse the key to use if the condition is false
+     * @param values the values to use for formatting the localized message
+     */
+    public static void bundled(Player player, Level level, boolean condition, String keyTrue, String keyFalse, Object... values) {
+        String key = condition ? keyTrue : keyFalse;
+        bundled(player, level, key, values);
+    }
+
+    /**
+     * Sends a localized message with a specific logging level to all players based on the given condition, using the provided keys and values for formatting.
+     *
+     * @param level the logging level for the message
+     * @param condition the condition determining which key to use for the message
+     * @param keyTrue the key to use if the condition is true
+     * @param keyFalse the key to use if the condition is false
+     * @param values the values to use for formatting the localized message
+     */
+    public static void bundled(Level level, boolean condition, String keyTrue, String keyFalse, Object... values) {
+        String key = condition ? keyTrue : keyFalse;
+        bundled(level, key, values);
+    }
+
+    /**
+     * Sends a localized message with a specific logging level to the specified player using the provided key and values for formatting.
+     *
+     * @param level the logging level for the message
+     * @param player the player to whom the message should be sent
+     * @param key the key to use for the message
+     * @param values the values to use for formatting the localized message
+     */
+    public static void bundled(Player player, Level level, String key, Object... values) {
+        player.sendMessage(level.format(format(key, findLocale(player.locale), values)));
+    }
+
+    /**
+     * Sends a localized message with a specific logging level to all players using the provided key and values for formatting.
+     *
+     * @param level the logging level for the message
+     * @param key the key to use for the message
+     * @param values the values to use for formatting the localized message
+     */
+    public static void bundled(Level level, String key, Object... values) {
+        Groups.player.each(p -> bundled(p, level, key, values));
+    }
     //endregion
 
     //region hud
