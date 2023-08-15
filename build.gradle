@@ -7,19 +7,41 @@ sourceCompatibility = JavaVersion.VERSION_16
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
-repositories{
+def getGitHash = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', '--short', 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+repositories {
     mavenCentral()
     maven{ url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
     maven{ url 'https://www.jitpack.io' }
 }
 
-ext{
+ext {
     mindustryVersion = 'v145'
 }
 
 dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+javadoc {
+    options.links "https://www.jooq.org/javadoc/3.17.0/"
+    destinationDir = file("${buildDir}/docs/javadoc")
 }
 
 jar {
