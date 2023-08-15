@@ -1,6 +1,8 @@
 apply plugin: "java"
+apply plugin: "maven-publish"
 
-version '1.0'
+group "thedimas.util"
+version "1.0"
 
 sourceCompatibility = JavaVersion.VERSION_16
 
@@ -19,11 +21,11 @@ def getGitHash = { ->
 repositories {
     mavenCentral()
     maven{ url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
-    maven{ url 'https://www.jitpack.io' }
+    maven{ url "https://www.jitpack.io" }
 }
 
 ext {
-    mindustryVersion = 'v145'
+    mindustryVersion = "v145"
 }
 
 dependencies{
