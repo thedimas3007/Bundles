@@ -16,6 +16,15 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/* TODO
+ * Call.announce
+ * Call.infoToast
+ * Call.warningToast - Call.warningToast(Iconc.codes.get("redo"), "Redo")
+ * Call.infoPopup
+ * Call.menu
+ * Call.followUpMenu
+ * Call.textInput
+ */
 @SuppressWarnings("unused")
 public class Bundle {
 
@@ -33,6 +42,7 @@ public class Bundle {
     }
 
     //region load
+
     /**
      * Loads the bundle for the specified mod and make class ready to be used.
      *
@@ -90,6 +100,7 @@ public class Bundle {
     //endregion
 
     //region locale utils
+
     /**
      * Parses the given locale code into a Locale object.
      *
@@ -119,6 +130,7 @@ public class Bundle {
     //endregion
 
     //region raw
+
     /**
      * Returns the localized string value associated with the specified key and locale, or a fallback string with the key surrounded by question marks if the key is not found in the bundle.
      *
@@ -172,6 +184,7 @@ public class Bundle {
     //endregion
 
     //region sendMessage
+
     /**
      * Sends a localized message to the specified player based on the given condition, using the provided keys and values for formatting.
      *
@@ -274,6 +287,7 @@ public class Bundle {
     //endregion
 
     //region hud
+
     /**
      * Sets the HUD text of the specified player to a localized message based on the given condition, using the provided keys and values for formatting.
      *
@@ -324,6 +338,7 @@ public class Bundle {
     //endregion
 
     //region infoMessage
+
     /**
      * Sends a localized info message (alert) to the specified player based on the given condition, using the provided keys and values for formatting.
      *
@@ -374,6 +389,7 @@ public class Bundle {
     //endregion
 
     //region label
+
     /**
      * Creates a label for the specified player with a localized message based on the given condition, using the provided keys and values for formatting.
      *
@@ -435,13 +451,31 @@ public class Bundle {
     }
     //endregion
 
-    /* TODO
-     * Call.announce
-     * Call.infoToast
-     * Call.warningToast - Call.warningToast(Iconc.codes.get("redo"), "Redo")
-     * Call.infoPopup
-     * Call.menu
-     * Call.followUpMenu
-     * Call.textInput
+    // region kick
+
+    /**
+     * Kicks the specified player with a localized message based on the given condition, using the provided keys and values for formatting.
+     *
+     * @param player the player who should be kicked
+     * @param condition the condition determining which key to use for the message
+     * @param keyTrue the key to use if the condition is true
+     * @param keyFalse the key to use if the condition is false
+     * @param values the values to use for formatting the localized message
      */
+    public static void kick(Player player, boolean condition, String keyTrue, String keyFalse, Object... values) {
+        String key = condition ? keyTrue : keyFalse;
+        kick(player, key, values);
+    }
+
+    /**
+     * Kicks the specified localized message using the provided key and values for formatting.
+     *
+     * @param player the player who should be kicked
+     * @param key the key to use for the message
+     * @param values the values to use for formatting the localized message
+     */
+    public static void kick(Player player, String key, Object... values) {
+        player.kick(format(key, findLocale(player.locale()), values));
+    }
+    // endregion
 }
