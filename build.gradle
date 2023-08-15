@@ -2,7 +2,7 @@ apply plugin: "java"
 apply plugin: "maven-publish"
 
 group "thedimas.util"
-version "1.0"
+version "1.0.0"
 
 sourceCompatibility = JavaVersion.VERSION_16
 
@@ -42,7 +42,7 @@ publishing {
 }
 
 javadoc {
-    options.links "https://www.jooq.org/javadoc/3.17.0/"
+    options.links "https://docs.thedimas.pp.ua/mindustry/"
     destinationDir = file("${buildDir}/docs/javadoc")
 }
 
