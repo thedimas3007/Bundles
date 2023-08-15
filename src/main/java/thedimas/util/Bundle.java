@@ -468,7 +468,7 @@ public class Bundle {
     }
 
     /**
-     * Kicks the specified localized message using the provided key and values for formatting.
+     * Kicks the specified player with a localized message using the provided key and values for formatting.
      *
      * @param player the player who should be kicked
      * @param key the key to use for the message
